@@ -24,8 +24,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const email = createElement("a", "contact-item", "ytknkpln@gmail.com");
   email.href = "mailto:ytknkpln@gmail.com";
   const phone = createElement("span", "contact-item", "+905432634397");
+  const linkedin = createElement(
+    "a",
+    "contact-item",
+    "https://www.linkedin.com/in/aytekinkaplan/"
+  );
   const location = createElement("span", "contact-item", "Van, Turkey");
-  contact.append(email, phone, location);
+  contact.append(email, phone, linkedin, location);
 
   // Professional Summary
   const summary = createElement("section", "summary");
