@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const exp1 = createExpItem(
-    "Junior Test Automation Engineer",
+    "Test Automation Engineer",
     "Triofan Technology, Information and Internet",
     "Aug 2023 – Present",
     `Utilized Agile/Scrum methodology for project development. Automated UI, API, and Data Validation test cases using Selenium-JUnit Cucumber BDD. Proficient in Git/GitHub for version control. Implemented Page Object Model (POM) for Automation Testing with Java, Selenium WebDriver, and Maven. Developed Selenium WebDriver scripts in Java and Cucumber for UI automation. Established an automation framework from scratch, emphasizing Cucumber BDD for API and Database data validation using multiple queries.`
