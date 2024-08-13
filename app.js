@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const title = createElement(
     "h2",
     "title",
-    "Full Stack Developer And Software Engineer in Testing"
+    "Fullstack Developer And Software Development Engineer in Test"
   );
   header.append(name, title);
 
@@ -23,35 +23,58 @@ document.addEventListener("DOMContentLoaded", () => {
   const contact = createElement("section", "contact-info");
   const email = createElement("a", "contact-item", "ytknkpln@gmail.com");
   email.href = "mailto:ytknkpln@gmail.com";
-  const phone = createElement("span", "contact-item", "(543) 263-4397");
+  const phone = createElement("span", "contact-item", "+905432634397");
   const location = createElement("span", "contact-item", "Van, Turkey");
   contact.append(email, phone, location);
 
-  // About
-  const about = createElement("section", "about");
-  const aboutTitle = createElement("h3", "section-title", "About Me");
-  const aboutText = createElement(
-    "p",
-    "about-text",
-    "Passionate full stack developer with 5+ years of experience in building scalable web applications. Skilled in JavaScript, React, Node.js, and Python. Committed to writing clean, efficient code and constantly learning new technologies."
+  // Professional Summary
+  const summary = createElement("section", "summary");
+  const summaryTitle = createElement(
+    "h3",
+    "section-title",
+    "Professional Summary"
   );
-  about.append(aboutTitle, aboutText);
+  const summaryText = createElement(
+    "p",
+    "summary-text",
+    `Experienced Software Development Engineer in Test with a strong background in Software Development Life Cycle (SDLC) and Software Testing Life Cycle (STLC). Proficient in Java-based Black Box Testing, Functional Testing, and Regression Testing. Skilled in creating Automation Frameworks, including Page Object Module (POM) and Data-Driven/Modular Framework in Selenium WebDriver. Expertise in crafting detailed test scenarios and cases for Smoke, Functional, and Regression testing, ensuring software quality. Well-versed in Manual Testing and Automated Testing using Selenium WebDriver, Maven, Cucumber, Junit, and TestNG. Familiar with Equivalence Class Partitioning, Boundary Value Analysis, and Defect Life Cycle using Jira. Domain knowledge in SQL queries and experience with Postman for manual API Testing. Solid understanding of Object-Oriented Programming (OOP), Jenkins for Continuous Integration, and strong analytical and communication skills. Effective team player capable of working independently in a fast-paced IT environment, meeting project deadlines. As a Fullstack Developer, proficient in both frontend and backend technologies, ensuring seamless integration of components. Experienced in building and maintaining scalable web applications with a focus on performance and user experience.`
+  );
+  summary.append(summaryTitle, summaryText);
 
   // Skills
   const skills = createElement("section", "skills");
-  const skillsTitle = createElement("h3", "section-title", "Skills");
+  const skillsTitle = createElement("h3", "section-title", "Technical Skills");
   const skillsList = createElement("ul", "skills-list");
-  ["JavaScript", "React", "Node.js", "Python", "SQL", "Git", "AWS"].forEach(
-    (skill) => {
-      const skillItem = createElement("li", "skill-item", skill);
-      skillsList.appendChild(skillItem);
-    }
-  );
+  [
+    "Java",
+    "Python",
+    "JavaScript",
+    "HTML",
+    "CSS",
+    "SQL",
+    "Git",
+    "AWS",
+    "Selenium WebDriver",
+    "Jenkins",
+    "Jira",
+    "REST API",
+    "React",
+    "Node.js",
+    "MongoDB",
+    "Express.js",
+  ].forEach((skill) => {
+    const skillItem = createElement("li", "skill-item", skill);
+    skillsList.appendChild(skillItem);
+  });
   skills.append(skillsTitle, skillsList);
 
   // Experience
   const experience = createElement("section", "experience");
-  const expTitle = createElement("h3", "section-title", "Work Experience");
+  const expTitle = createElement(
+    "h3",
+    "section-title",
+    "Professional Experience"
+  );
   const expList = createElement("ul", "exp-list");
 
   const createExpItem = (role, company, period, description) => {
@@ -65,68 +88,79 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const exp1 = createExpItem(
-    "Senior Full Stack Developer",
-    "TechCorp Inc.",
-    "2018 - Present",
-    "Led a team of 5 developers in building a cloud-based SaaS platform. Improved system performance by 40% through code optimization."
+    "Junior Test Automation Engineer",
+    "Triofan Technology, Information and Internet",
+    "Aug 2023 – Present",
+    `Utilized Agile/Scrum methodology for project development. Automated UI, API, and Data Validation test cases using Selenium-JUnit Cucumber BDD. Proficient in Git/GitHub for version control. Implemented Page Object Model (POM) for Automation Testing with Java, Selenium WebDriver, and Maven. Developed Selenium WebDriver scripts in Java and Cucumber for UI automation. Established an automation framework from scratch, emphasizing Cucumber BDD for API and Database data validation using multiple queries.`
   );
-  const exp2 = createExpItem(
-    "Full Stack Developer",
-    "WebSolutions LLC",
-    "2015 - 2018",
-    "Developed and maintained multiple client websites and web applications. Implemented responsive designs and ensured cross-browser compatibility."
-  );
-  expList.append(exp1, exp2);
+  expList.appendChild(exp1);
+
   experience.append(expTitle, expList);
 
   // Education
   const education = createElement("section", "education");
   const eduTitle = createElement("h3", "section-title", "Education");
-  const degree = createElement(
-    "p",
-    "degree",
-    "Bachelor of Science in Computer Science"
-  );
+  const degree = createElement("p", "degree", "Department Of Physics Teacher");
   const university = createElement(
     "p",
     "university",
-    "University of Technology"
+    "Istanbul, Turkey | 2002–2008"
   );
-  const gradYear = createElement("p", "grad-year", "Graduated: 2015");
-  education.append(eduTitle, degree, university, gradYear);
+  education.append(eduTitle, degree, university);
 
-  // Append all sections to root
-  root.append(header, contact, about, skills, experience, education);
+  // Volunteer Experience
+  const volunteer = createElement("section", "volunteer");
+  const volTitle = createElement("h3", "section-title", "Volunteer Experience");
+  const volDesc = createElement(
+    "p",
+    "vol-desc",
+    `Education Volunteer at Euphrates Educational Institution since September 2008: Conducted workshops for underprivileged students, focusing on math and science. Collaborated with teachers to create interactive lesson plans with hands-on activities. Contributed to community outreach programs promoting access to quality education. Achievements: Implemented a mentorship program, leading to a 20% improvement in students' academic performance. Contributed to the establishment of a community library for self-directed learning.`
+  );
+  volunteer.append(volTitle, volDesc);
 
-  // Animations
-  gsap.from("header", { opacity: 0, y: -50, duration: 1 });
+  // Languages
+  const languages = createElement("section", "languages");
+  const langTitle = createElement("h3", "section-title", "Languages");
+  const langDesc = createElement(
+    "p",
+    "lang-desc",
+    "Turkish (native), Kurdish (intermediate), English (intermediate)"
+  );
+  languages.append(langTitle, langDesc);
+
+  // Interpersonal Skills
+  const interpersonal = createElement("section", "interpersonal");
+  const interTitle = createElement(
+    "h3",
+    "section-title",
+    "Interpersonal Skills"
+  );
+  const interDesc = createElement(
+    "p",
+    "inter-desc",
+    "Effective Communication, Adaptability, Problem Solving, Critical Thinking, Teamwork"
+  );
+  interpersonal.append(interTitle, interDesc);
+
+  root.append(
+    header,
+    contact,
+    summary,
+    skills,
+    experience,
+    education,
+    volunteer,
+    languages,
+    interpersonal
+  );
+
+  // Animation using GSAP
+  gsap.from(".name", { duration: 1, opacity: 0, y: -50 });
+  gsap.from(".title", { duration: 1, opacity: 0, y: 50, delay: 0.5 });
   gsap.from(".contact-item", {
-    opacity: 0,
-    y: 20,
     duration: 0.5,
+    opacity: 0,
     stagger: 0.2,
-  });
-  gsap.from(".section-title", {
-    opacity: 0,
-    x: -50,
-    duration: 0.5,
-    stagger: 0.2,
-  });
-  gsap.from(".skill-item", {
-    opacity: 0,
-    scale: 0.5,
-    duration: 0.5,
-    stagger: 0.1,
-  });
-  gsap.from(".exp-item", { opacity: 0, x: -50, duration: 0.5, stagger: 0.2 });
-
-  // Interactive elements
-  document.querySelectorAll(".skill-item").forEach((item) => {
-    item.addEventListener("mouseover", () => {
-      gsap.to(item, { scale: 1.1, duration: 0.2 });
-    });
-    item.addEventListener("mouseout", () => {
-      gsap.to(item, { scale: 1, duration: 0.2 });
-    });
+    delay: 1,
   });
 });
