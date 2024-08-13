@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const university = createElement(
     "p",
     "university",
-    "Istanbul Marmara University, Turkey | 2002–2008"
+    "Istanbul Marmara University, Turkey | 2003–2008"
   );
   education.append(eduTitle, degree, university);
 
