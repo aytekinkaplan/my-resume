@@ -21,19 +21,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Contact Info
   const contact = createElement("section", "contact-info");
-  const email = createElement("a", "contact-item", "ytknkpln@gmail.com");
+
+  // Email
+  const email = createElement("a", "contact-item");
   email.href = "mailto:ytknkpln@gmail.com";
-  const phone = createElement("span", "contact-item", "+905432634397");
-  const linkedin = createElement(
-    "a",
-    "contact-item",
-    "https://www.linkedin.com/in/aytekinkaplan/"
-  );
-  const location = createElement("span", "contact-item", "Van, Turkey");
+  email.innerHTML = '<i class="fa-solid fa-envelope"></i> ytknkpln@gmail.com';
+
+  // Phone
+  const phone = createElement("span", "contact-item");
+  phone.innerHTML = '<i class="fa-solid fa-phone"></i> +905432634397';
+
+  // LinkedIn
+  const linkedin = createElement("a", "contact-item");
+  linkedin.href = "https://www.linkedin.com/in/aytekinkaplan/";
+  linkedin.innerHTML = '<i class="fa-brands fa-linkedin"></i> LinkedIn Profile';
+
+  // Location
+  const location = createElement("span", "contact-item");
+  location.innerHTML = '<i class="fa-solid fa-map-marker-alt"></i> Van, Turkey';
+
   contact.append(email, phone, linkedin, location);
 
   // Professional Summary
-  const summary = createElement("section", "summary");
+  const summary = createElement("section", "section summary");
   const summaryTitle = createElement(
     "h3",
     "section-title",
@@ -47,39 +57,46 @@ document.addEventListener("DOMContentLoaded", () => {
   summary.append(summaryTitle, summaryText);
 
   // Skills
-  const skills = createElement("section", "skills");
+  const skills = createElement("section", "section skills");
   const skillsTitle = createElement("h3", "section-title", "Technical Skills");
   const skillsList = createElement("ul", "skills-list");
-  [
-    "Java",
-    "Python",
-    "JavaScript",
-    "HTML",
-    "CSS",
-    "SQL",
-    "Git",
-    "AWS",
-    "Selenium WebDriver",
-    "Jenkins",
-    "Jira",
-    "REST API",
-    "Flask",
-    "Django",
-    "Cucumber",
-    "Junit",
-    "TestNG",
-    "React",
-    "Node.js",
-    "MongoDB",
-    "Express.js",
-  ].forEach((skill) => {
-    const skillItem = createElement("li", "skill-item", skill);
+
+  // Technology Icons and Names
+  const technologies = {
+    Java: "fa-brands fa-java",
+    Python: "fa-brands fa-python",
+    JavaScript: "fa-brands fa-js",
+    HTML: "fa-brands fa-html5",
+    CSS: "fa-brands fa-css3",
+    SQL: "fa-solid fa-database",
+    Git: "fa-brands fa-git",
+    AWS: "fa-brands fa-cloud",
+    "Selenium WebDriver": "fa-solid fa-robot",
+    Jenkins: "fa-solid fa-cogs",
+    Jira: "fa-solid fa-tachometer-alt",
+    "REST API": "fa-solid fa-plug",
+    Flask: "fa-solid fa-flask",
+    Django: "fa-brands fa-django",
+    Cucumber: "fa-solid fa-lemon",
+    Junit: "fa-solid fa-cogs",
+    TestNG: "fa-solid fa-bug",
+    React: "fa-brands fa-react",
+    "Node.js": "fa-brands fa-node",
+    MongoDB: "fa-solid fa-database",
+    "Express.js": "fa-brands fa-express",
+  };
+
+  // Create List Items
+  for (const [tech, icon] of Object.entries(technologies)) {
+    const skillItem = createElement("li", "skill-item");
+    skillItem.innerHTML = `<i class="${icon}"></i> ${tech}`;
     skillsList.appendChild(skillItem);
-  });
+  }
+
   skills.append(skillsTitle, skillsList);
 
   // Experience
-  const experience = createElement("section", "experience");
+  const experience = createElement("section", "section experience");
   const expTitle = createElement(
     "h3",
     "section-title",
@@ -108,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
   experience.append(expTitle, expList);
 
   // Education
-  const education = createElement("section", "education");
+  const education = createElement("section", "section education");
   const eduTitle = createElement("h3", "section-title", "Education");
   const degree = createElement("p", "degree", "Department Of Physics Teacher");
   const university = createElement(
@@ -119,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
   education.append(eduTitle, degree, university);
 
   // Volunteer Experience
-  const volunteer = createElement("section", "volunteer");
+  const volunteer = createElement("section", "section volunteer");
   const volTitle = createElement("h3", "section-title", "Volunteer Experience");
   const volDesc = createElement(
     "p",
@@ -129,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
   volunteer.append(volTitle, volDesc);
 
   // Languages
-  const languages = createElement("section", "languages");
+  const languages = createElement("section", "section languages");
   const langTitle = createElement("h3", "section-title", "Languages");
   const langDesc = createElement(
     "p",
@@ -139,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
   languages.append(langTitle, langDesc);
 
   // Interpersonal Skills
-  const interpersonal = createElement("section", "interpersonal");
+  const interpersonal = createElement("section", "section interpersonal");
   const interTitle = createElement(
     "h3",
     "section-title",
@@ -152,6 +169,75 @@ document.addEventListener("DOMContentLoaded", () => {
   );
   interpersonal.append(interTitle, interDesc);
 
+  // Projects Section
+  const projects = createElement("section", "section projects");
+  const projectsTitle = createElement("h3", "section-title", "Projects");
+  const projectsList = createElement("div", "projects-list");
+
+  const createProjectItem = (title, description, technologies) => {
+    const item = createElement("div", "project-item");
+    const itemTitle = createElement("h4", "project-title", title);
+    const itemDesc = createElement("p", "project-description", description);
+    const itemTech = createElement(
+      "p",
+      "project-tech",
+      `Technologies: ${technologies}`
+    );
+    item.append(itemTitle, itemDesc, itemTech);
+    return item;
+  };
+
+  const project1 = createProjectItem(
+    "Automated Testing Framework",
+    "Developed a robust automated testing framework using Selenium WebDriver and Cucumber BDD.",
+    "Java, Selenium, Cucumber, Maven"
+  );
+  const project2 = createProjectItem(
+    "E-commerce Website",
+    "Built a fully functional e-commerce website with user authentication and payment integration.",
+    "React, Node.js, Express, MongoDB"
+  );
+
+  projectsList.append(project1, project2);
+  projects.append(projectsTitle, projectsList);
+
+  // Testimonials Section
+  const testimonials = createElement("section", "section testimonials");
+  const testimonialsTitle = createElement(
+    "h3",
+    "section-title",
+    "Testimonials"
+  );
+  const testimonialsList = createElement("div", "testimonials-list");
+
+  const createTestimonialItem = (text, author, position) => {
+    const item = createElement("div", "testimonial-item");
+    const itemText = createElement("p", "testimonial-text", `"${text}"`);
+    const itemAuthor = createElement(
+      "p",
+      "testimonial-author",
+      `- ${author}, ${position}`
+    );
+    item.append(itemText, itemAuthor);
+    return item;
+  };
+
+  const testimonial1 = createTestimonialItem(
+    "Aytekin is an exceptional tester with a keen eye for detail. His automation skills have significantly improved our testing efficiency.",
+    "Murat Çorlu",
+    "Project Manager at Triofan Technology"
+  );
+
+  testimonialsList.append(testimonial1);
+  testimonials.append(testimonialsTitle, testimonialsList);
+
+  // Dark Mode Toggle
+  const darkModeToggle = createElement("button", "dark-mode-toggle", "🌓");
+  darkModeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+  });
+
+  // Append all sections to root
   root.append(
     header,
     contact,
@@ -159,9 +245,12 @@ document.addEventListener("DOMContentLoaded", () => {
     skills,
     experience,
     education,
+    projects,
     volunteer,
     languages,
-    interpersonal
+    interpersonal,
+    testimonials,
+    darkModeToggle
   );
 
   // Animation using GSAP
@@ -172,5 +261,12 @@ document.addEventListener("DOMContentLoaded", () => {
     opacity: 0,
     stagger: 0.2,
     delay: 1,
+  });
+  gsap.from(".section", {
+    duration: 0.5,
+    opacity: 0,
+    y: 50,
+    stagger: 0.2,
+    delay: 1.5,
   });
 });

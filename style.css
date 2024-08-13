@@ -1,26 +1,50 @@
+:root {
+  --primary-color: #4a00e0;
+  --secondary-color: #8e2de2;
+  --text-color: #333;
+  --bg-color: #f0f0f0;
+  --card-bg-color: #fff;
+}
+
+body.dark-mode {
+  --primary-color: #8e2de2;
+  --secondary-color: #4a00e0;
+  --text-color: #f0f0f0;
+  --bg-color: #1a1a1a;
+  --card-bg-color: #2a2a2a;
+}
+
 body,
 html {
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
-  line-height: 2;
-  background-color: #f0f0f0;
+  line-height: 1.6;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 #root {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  background-color: white;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
 }
 
 .resume-header {
-  background: linear-gradient(45deg, #4a00e0, #8e2de2);
+  background: linear-gradient(
+    45deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
   color: white;
   padding: 40px;
   text-align: center;
-  border-radius: 10px 10px 0 0;
+  border-radius: 10px;
+  grid-column: 1 / -1;
 }
 
 .name {
@@ -36,21 +60,42 @@ html {
 .contact-info {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 20px;
   padding: 20px;
-  background-color: #f8f8f8;
+  background-color: var(--card-bg-color);
+  border-radius: 10px;
+  grid-column: 1 / -1;
 }
 
 .contact-item {
-  color: #333;
+  color: var(--text-color);
   text-decoration: none;
+  transition: color 0.3s;
+}
+
+.contact-item:hover {
+  color: var(--primary-color);
+}
+
+.section {
+  background-color: var(--card-bg-color);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .section-title {
-  color: #4a00e0;
-  border-bottom: 2px solid #4a00e0;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
   padding-bottom: 10px;
-  margin-top: 30px;
+  margin-top: 0;
 }
 
 .skills-list {
@@ -62,16 +107,16 @@ html {
 }
 
 .skill-item {
-  background-color: #e0e0e0;
+  background-color: var(--bg-color);
   padding: 5px 15px;
   border-radius: 20px;
   font-size: 0.9em;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .skill-item:hover {
-  background-color: #4a00e0;
+  background-color: var(--primary-color);
   color: white;
 }
 
@@ -80,21 +125,81 @@ html {
 }
 
 .role {
-  color: #4a00e0;
+  color: var(--primary-color);
   margin-bottom: 5px;
 }
 
 .company,
 .period {
   font-style: italic;
-  color: #666;
+  color: var(--text-color);
+  opacity: 0.7;
 }
 
 .description {
   margin-top: 10px;
 }
 
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.project-item {
+  background-color: var(--card-bg-color);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.testimonial-item {
+  background-color: var(--card-bg-color);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.testimonial-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.dark-mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dark-mode-toggle:hover {
+  background-color: var(--secondary-color);
+}
+
 @media (max-width: 768px) {
+  #root {
+    grid-template-columns: 1fr;
+  }
+
   .contact-info {
     flex-direction: column;
     align-items: center;
